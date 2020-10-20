@@ -39,7 +39,6 @@ class LineFollower:
         self.angle_radian = math.atan2((self.sensor_lenght/self.sensor_number),self.sensor_distance)
         ##
 
-
         self.timeperframe = 1/20
         self.onetime_process = 1
 
@@ -105,7 +104,7 @@ class LineFollower:
                 brightness = (0.2126 * ord(image.data[i * 3])) + (0.7152 * ord(image.data[i * 3 + 1])) + (0.0722 * ord(image.data[i * 3 + 2]))
                 self.sensor_row.append(brightness)
 
-            # one time process.
+            # one time process for calibration
             if self.onetime_process == 1:
                 self.sensor_max_value = self.sensor_row[16]
                 self.middle_point = self.read_sensor()
